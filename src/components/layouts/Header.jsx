@@ -33,10 +33,10 @@ const Header = () => {
                 <a href="/">collections</a>
               </li>
               <li className="nav-link-item">
-                <a href="/collection/men">men</a>
+                <a href="/collections/men">men</a>
               </li>
               <li className="nav-link-item">
-                <a href="/collection/women">women</a>
+                <a href="/collections/women">women</a>
               </li>
               <li className="nav-link-item">
                 <a href="/about">about</a>

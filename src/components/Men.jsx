@@ -1,10 +1,12 @@
 import React from 'react'
 
+import Layout from "./layouts/Layout";
+
 const Men = () => {
     return (
-        <div>
+        <Layout>
             men collections
-        </div>
+        </Layout>
     )
 }
 

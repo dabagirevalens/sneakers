@@ -1,10 +1,12 @@
 import React from 'react'
 
+import Layout from "./layouts/Layout";
+
 const Women = () => {
     return (
-        <div>
+        <Layout>
             women collections
-        </div>
+        </Layout>
     )
 }
 
