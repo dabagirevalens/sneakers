@@ -1,13 +1,10 @@
 import React, { useState, useRef } from "react";
 
 import Layout from "./layouts/Layout";
-import Modal from "./Modal"
+import Modal from "./Modal";
 
 const Women = () => {
-
-  const modalRef = useRef()
-
-  console.log(modalRef);
+  const modalRef = useRef();
 
   const [quantity, setQuantity] = useState(0);
 
@@ -21,13 +18,42 @@ const Women = () => {
 
   const openModal = () => {
     modalRef.current.openModal();
-  }
+  };
 
   const closeModal = () => {
     modalRef.current.closeModal();
-  }
+  };
 
   localStorage.setItem("cart", quantity);
+
+  let images = [
+    { id: 1, src: "/images/image-product-1.jpg" },
+    {
+      id: 2,
+      src: "/images/image-product-2.jpg",
+    },
+    {
+      id: 3,
+      src: "/images/image-product-3.jpg",
+    },
+    {
+      id: 4,
+      src: "/images/image-product-4.jpg",
+    },
+  ];
+
+  const [currentImage, setCurrentImage] = useState(
+    images.find((image) => image.id === 1)
+  );
+
+  const prevImage = () => {
+    setCurrentImage(images.find((image) => image.id === currentImage.id-1));
+  }
+
+  const nextImage = () => {
+    setCurrentImage(images.find((image) => image.id === currentImage.id + 1));
+  }
+
 
   return (
     <>
@@ -96,10 +122,7 @@ const Women = () => {
                     +{" "}
                   </button>
                 </div>
-                <button
-                  className="add-to-cart"
-                  // disabled={quantity > 0 ? false : true}
-                >
+                <button className="add-to-cart">
                   <i className="bx bx-cart-alt cart"></i>
                   Add to cart
                 </button>
@@ -112,23 +135,29 @@ const Women = () => {
       <Modal ref={modalRef}>
         <i className="bx bx-x close-modal-icon" onClick={closeModal} />
         <div className="product-details">
+          <i className="bx bx-left-arrow-alt arrows prev" onClick={prevImage} />
+          <i
+            className="bx bx-right-arrow-alt arrows next"
+            onClick={nextImage}
+          />
           <div className="images">
             <figure className="product-image">
-              <img
-                src="/images/image-product-1.jpg"
-                alt="product"
-                className="pimage"
-              />
+              <img src={currentImage.src} alt="product" />
             </figure>
             <div className="other-images">
-              <img
-                src="/images/image-product-1-thumbnail.jpg"
-                alt=""
-                className="active-image"
-              />
-              <img src="/images/image-product-2-thumbnail.jpg" alt="" />
-              <img src="/images/image-product-3-thumbnail.jpg" alt="" />
-              <img src="/images/image-product-4-thumbnail.jpg" alt="" />
+              {images.map((image) => (
+                <img
+                key={image.id}
+                  src={image.src}
+                  alt={image.id}
+                  className={currentImage.id === image.id ? "active-image" : ""}
+                  onClick={() =>
+                    setCurrentImage(
+                      images.find((img) => img.id === image.id)
+                    )
+                  }
+                />
+              ))}
             </div>
           </div>
         </div>
