@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 import Layout from "./layouts/Layout";
 
 const Men = () => {
-    return (
-        <Layout>
-            men collections
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+        men collections
+    </Layout>
+  );
+};
 
-export default Men
+export default Men;
