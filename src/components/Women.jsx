@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 
 import Layout from "./layouts/Layout";
 import Modal from "./Modal";
+import RelatedProducts from './RelatedProducts';
 
 const Women = () => {
   const modalRef = useRef();
@@ -129,6 +130,7 @@ const Women = () => {
               </div>
             </div>
           </div>
+          <RelatedProducts />
         </div>
       </Layout>
 
