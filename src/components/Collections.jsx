@@ -1,34 +1,30 @@
-import {useState} from "react";
+import { useQuery } from "react-query";
 
-const Collections =  () => {
+const getCollections = async () =>
+  await (await fetch("https://fakestoreapi.com/products")).json();
 
-    const [collections, setCollections] = useState([]);
+const Collections = () => {
+  const { data, isLoading, error } = useQuery("collections", getCollections);
 
-    let url = "https://fakestoreapi.com/products";
-
-    const getCollections = async () => {
-      const response = await fetch(url);
-
-      const jsonData = await response.json();
-      setCollections(jsonData);
-
-    };
-
-    getCollections();
-
-    let myCollection = collections.filter(collection => collection.category !== "electronics");
-
-
-
-  return <div className="collections">
-      {myCollection && myCollection.map(collection =>(
-          <div className="container" key={collection.id}>
-            <img src={collection.image} alt={collection.title} />
-            <h2> {collection.title}</h2>
-            <p> {collection.description} </p>
-          </div>
-      ))}
-  </div>;
+  return (
+    <div className="collections">
+      {error ? (
+        <div style={{color : 'red' }} >Something went wrong.</div>
+      ) : isLoading ? (
+        <div className="loading"> Loading ..... </div>
+      ) : (
+        data
+          ?.filter((item) => item.category !== "electronics")
+          .map((collection) => (
+            <div className="collection-container" key={collection.id}>
+              <img src={collection.image} alt={collection.title} />
+              <h2> {collection.title}</h2>
+              <p> {collection.description} </p>
+            </div>
+          ))
+      )}
+    </div>
+  );
 };
 
 export default Collections;
