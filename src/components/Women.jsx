@@ -137,11 +137,8 @@ const Women = () => {
       <Modal ref={modalRef}>
         <i className="bx bx-x close-modal-icon" onClick={closeModal} />
         <div className="product-details">
-          <i className="bx bx-left-arrow-alt arrows prev" onClick={prevImage} />
-          <i
-            className="bx bx-right-arrow-alt arrows next"
-            onClick={nextImage}
-          />
+          <i className="bx bx-chevron-left arrows prev" onClick={prevImage} />
+          <i className="bx bx-chevron-right arrows next" onClick={nextImage} />
           <div className="images">
             <figure className="product-image">
               <img src={currentImage.src} alt="product" />
@@ -149,14 +146,12 @@ const Women = () => {
             <div className="other-images">
               {images.map((image) => (
                 <img
-                key={image.id}
+                  key={image.id}
                   src={image.src}
                   alt={image.id}
                   className={currentImage.id === image.id ? "active-image" : ""}
                   onClick={() =>
-                    setCurrentImage(
-                      images.find((img) => img.id === image.id)
-                    )
+                    setCurrentImage(images.find((img) => img.id === image.id))
                   }
                 />
               ))}
