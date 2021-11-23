@@ -25,12 +25,16 @@
 /* nav bar  */
 
 .navbar {
+  position : fixed;
   width: 100vw;
   padding: 1rem 4rem;
   border-bottom: 1px solid var(--dark_grayish_blue);
   display: flex;
   height: 70px;
   justify-content: space-between;
+  top: 0;
+  z-index: 9999;
+  background: var(--white);
 }
 
 .logo {
@@ -564,6 +568,7 @@
    width: 100%;
    padding : 0;
    margin: 0;
+   margin-top: 4.2rem;
  }
 
  .product-details {
@@ -728,7 +733,7 @@
   position: relative;
   width: 90%;
   padding: 2rem;
-  margin: 2rem auto;
+  margin: 6rem auto;
   display: flex;
   flex-wrap: wrap;
 }
