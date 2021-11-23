@@ -54,7 +54,7 @@ const RelatedProducts = () => {
 
   return (
     <div className="related-products">
-      <h1>Related Projects</h1>
+      <h1>Related Collections</h1>
       <div className="related-products-wrapper" ref={myRef}>
         {data.map((product) => (
           <div className="card" key={product.title}>
