@@ -1,6 +1,8 @@
 import React from "react";
+import Cart from '../Cart';
 
 const Header = () => {
+
   let quantity = localStorage.getItem("cart");
 
   const openMobileMenu = () => {
@@ -12,6 +14,12 @@ const Header = () => {
     const navContainer = document.getElementById("container");
     navContainer.classList.remove("active");
   };
+
+  const [display, setDisplay] = React.useState(false);
+
+  const toggleCart = () => {
+    setDisplay(display ? false : true);
+  }
 
   return (
     <div className="navbar">
@@ -50,10 +58,11 @@ const Header = () => {
 
         <div className="cart-user">
           <>
-            <i className="bx bx-cart-alt cart" />
+            <i className="bx bx-cart-alt cart" onClick={toggleCart} />
             {quantity && quantity > 0 && (
               <span className="cart-number">{quantity}</span>
             )}
+            <Cart display={display} />
           </>
           <figure className="avatar avatar-nav">
             <img

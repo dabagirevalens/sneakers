@@ -66,8 +66,8 @@ const RelatedProducts = () => {
           </div>
         ))}
         <div className="row">
-          <i className="bx bx-left-arrow-alt prev-prods" onClick={prevClick} />
-          <i className="bx bx-right-arrow-alt next-prods" onClick={nextClick} />
+          <i className="bx bx-chevron-left prev-prods" onClick={prevClick} />
+          <i className="bx bx-chevron-right next-prods" onClick={nextClick} />
         </div>
       </div>
     </div>
