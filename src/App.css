@@ -216,6 +216,43 @@
   cursor: pointer;
 }
 
+@media (max-width: 281px){
+  .avatar{
+    margin-left: 6px;
+  }
+  .cart-modal{
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 321px){
+  .navbar{
+    padding : 0 0;
+  }
+  .logo{
+    margin-left: -10px;
+  }
+  .logo > .logo-title{
+    margin-right: 14px;
+  }
+   .collections {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .collections .collection-container {
+    flex-basis: 100%;
+    padding: 5px;
+  }
+  
+  .cart-modal{
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}
 
 @media (max-width: 875px) {
   .navbar {
@@ -778,7 +815,7 @@
 
 @media (max-width: 281px){
   .collections .collection-container img{
-    height: 340px;
+    height: 200px;
   }
 }
 
